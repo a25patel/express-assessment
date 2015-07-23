@@ -7,10 +7,15 @@ block content
   
   for article in allZine
     div.article
-      div.banner
-        h3= article.title  
-        style.
-          background-image: img(src='#{article.url}')
-        //- a(href = '/articles/' + article._id) 
+      if !article.url
+        div.banner(style='background-image:url(http://static1.squarespace.com/static/54e1eb34e4b00603728efcdd/54f5e15ee4b09f40436d39cd/54f5e181e4b09f40436d3d22/1425400341137/congruent_pentagon-subtle_patterns.png);')
+          h3=article.title
+      else if article.url && article.background === 'on'
+        div.banner(style='background-image:url(#{article.url}); color:white;')
+          h3=article.title
+      else
+        div.banner(style='background-image:url(#{article.url});')
+          h3=article.title
+
       div.content
         td= article.excerpt
