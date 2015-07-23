@@ -1,7 +1,16 @@
 extends ../layout
 
 block content
-  h1 View the Articles - Index Page 
-  a(href='/articles/new') Create New Article
-  a(href='/articles/edit') Edit Article
-  a(href='/articles/show') Show Article
+  div#header
+    h1 The Zine
+    a(href='/articles/new') Create New Article
+  
+  for article in allZine
+    div.article
+      div.banner
+        h3= article.title  
+        style.
+          background-image: img(src='#{article.url}')
+        //- a(href = '/articles/' + article._id) 
+      div.content
+        td= article.excerpt

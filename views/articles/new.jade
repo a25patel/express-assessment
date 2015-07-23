@@ -1,18 +1,23 @@
 extends ../layout
 
+//css Fixes: 
+  //- 1. make header height bigger/ text vertical align center 
+  //- 2. justify input fields over in one column including button and checkbox 
+  //- 3. get excerpt and articleBody labels to be above textareas 
+
 block content
   div#header 
     h1 The Zine
   div#container 
     h2 New Article
-    form(method='/articles' action='post')
+    form(method='post' action='/articles')
       div.title
         label(for='title') Title 
-        input(type ='text' id='title' name='title' size='200')
+        input(type ='text' id='title' name='title' size='100')
       
       div.url
         label(for='url') Background URL 
-        input(type ='url'  id='url' size='50' name='url')
+        input(type ='url'  id='url' name='url' size='100')
         
       div.background
         input(type='checkbox' id='background' name='background')
@@ -22,9 +27,9 @@ block content
         label(for='excerpt') Excerpt 
         textarea(name='excerpt' id='excerpt' rows='10' cols='50')
         
-      div.body  
-        label(for='body') Body 
-        textarea(name='body' id='body' rows='10' cols='50')
+      div.articleBody  
+        label(for='articleBody') Body 
+        textarea(name='articleBody' id='articleBody' rows='10' cols='50')
 
       div.button
         input(type='submit' id='button' value='Add Article')
