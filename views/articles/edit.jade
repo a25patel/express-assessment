@@ -1,4 +1,34 @@
 extends ../layout
 
 block content
-  h1 Edit
+  div#header 
+    a(href = "/articles/")
+      h1 The Zine
+
+  div#container 
+    h2 Edit Article
+    form(method='post' action='/articles/' + oneArticle._id + '/update')
+      div.title
+        label(for='title') Title 
+        input(type ='text' id='title' name='title' size='100' value= '#{oneArticle.title}')
+      
+      div.url
+        label(for='url') Background URL 
+        input(type ='url'  id='url' name='url' size='100' value='#{oneArticle.url}')
+        
+      div.background
+        input(type='checkbox' id='background' name='background' checked=(oneArticle.background === 'on' ? 'on' : null))
+        label(for='background') Background image has dark colors
+      
+      div.excerpt 
+        label(for='excerpt') Excerpt 
+        textarea(name='excerpt' id='excerpt' rows='10' cols='50') #{oneArticle.excerpt}
+        
+      div.articleBody  
+        label(for='articleBody') Body 
+        textarea(name='articleBody' id='articleBody' rows='10' cols='50') #{oneArticle.body}
+
+      div.button
+        input(type='submit' id='button' value='Add Article')
+        input(type='button' value='Delete' id='delete')
+        

@@ -34,10 +34,33 @@ router.get('/articles/:id', function(req,res,next){
   });
 });
 
-
+// EDIT one article
 router.get('/articles/:id/edit', function(req, res, next) {
-  res.render('articles/edit');
+  articleCollection.findOne({_id:req.params.id}, function(err, zineIndex){
+    res.render('articles/edit', {oneArticle: zineIndex});
+  });
 });
+
+//POST my UPDATES
+router.post('/articles/:id/update', function(req,res,next){
+  articleCollection.update({_id:req.params.id},{
+    title: req.body.title,
+    url: req.body.url,
+    background: req.body.background,
+    excerpt: req.body.excerpt,
+    body: req.body.articleBody,
+  });
+  res.redirect('/articles');
+});
+
+// DELETE an article
+router.post('delete', function(req,res,next){
+  articleCollection.remove({_id:req.params.id}, function(err, zineIndex){
+    res.redirect('/articles');   
+  });
+});
+
+
 
 
 module.exports = router;
