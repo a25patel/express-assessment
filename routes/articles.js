@@ -35,7 +35,7 @@ router.get('/articles/:id', function(req,res,next){
 });
 
 
-router.get('/articles/edit', function(req, res, next) {
+router.get('/articles/:id/edit', function(req, res, next) {
   res.render('articles/edit');
 });
 
