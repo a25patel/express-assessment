@@ -1,5 +1,8 @@
 # Express CRUD Assessment
 
+###### HEROKU DEPLOYMENT LINK##############
+https://thawing-brook-7581.herokuapp.com/
+
 ## Set the Stage
 
 _Why are we doing this?_

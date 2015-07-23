@@ -1,4 +1,30 @@
 extends ../layout
 
 block content
-  h1 New 
+  div#header 
+    h1 The Zine
+  div#container 
+    h2 New Article
+    form(method='/articles' action='post')
+      div.title
+        label(for='title') Title 
+        input(type ='text' id='title' name='title' size='200')
+      
+      div.url
+        label(for='url') Background URL 
+        input(type ='url'  id='url' size='50' name='url')
+        
+      div.background
+        input(type='checkbox' id='background' name='background')
+        label(for='background') Background image has dark colors
+      
+      div.excerpt 
+        label(for='excerpt') Excerpt 
+        textarea(name='excerpt' id='excerpt' rows='10' cols='50')
+        
+      div.body  
+        label(for='body') Body 
+        textarea(name='body' id='body' rows='10' cols='50')
+
+      div.button
+        input(type='submit' id='button' value='Add Article')
