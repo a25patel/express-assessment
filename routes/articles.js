@@ -27,14 +27,17 @@ router.post('/articles', function(req,res,next){
   res.redirect('/articles');
 });
 
+//Show one article
+router.get('/articles/:id', function(req,res,next){
+  articleCollection.findOne({_id:req.params.id},function(err,zineIndex){
+   res.render('articles/show', {oneArticle: zineIndex});
+  });
+});
 
 
 router.get('/articles/edit', function(req, res, next) {
   res.render('articles/edit');
 });
 
-router.get('/articles/show', function(req, res, next) {
-  res.render('articles/show');
-});
 
 module.exports = router;

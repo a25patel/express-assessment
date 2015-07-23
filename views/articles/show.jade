@@ -1,4 +1,21 @@
 extends ../layout
 
 block content
-  h1 Show One 
+  div#header
+    a(href = "/articles/")
+      h1 The Zine
+  
+  
+  
+  
+  //- h1 Showing Gif By: 
+  //-   =oneGif.author
+  //- 
+  //- h4 Safe?: 
+  //-   =oneGif.safe
+  //-   img(src='#{oneGif.gifUrl}')
+  //- h4=oneGif.description
+  //- form(method='post' action='/gifs/' + oneGif._id + 'delete')
+  //-   div.delete
+  //-     a(href="/gifs/" + oneGif._id + "/edit") Edit
+  //-     button(type="submit" value='delete' id='delete') Delete

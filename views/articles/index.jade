@@ -3,19 +3,25 @@ extends ../layout
 block content
   div#header
     h1 The Zine
-    a(href='/articles/new') Create New Article
+    a(href='/articles/new') Create New Article! 
   
-  for article in allZine
-    div.article
-      if !article.url
-        div.banner(style='background-image:url(http://static1.squarespace.com/static/54e1eb34e4b00603728efcdd/54f5e15ee4b09f40436d39cd/54f5e181e4b09f40436d3d22/1425400341137/congruent_pentagon-subtle_patterns.png);')
-          h3=article.title
-      else if article.url && article.background === 'on'
-        div.banner(style='background-image:url(#{article.url}); color:white;')
-          h3=article.title
-      else
-        div.banner(style='background-image:url(#{article.url});')
-          h3=article.title
+  if allZine
+    for article in allZine
+      div.article
+        if !article.url
+          a(href = '/articles/' + article._id) 
+            div.banner(style='background-image:url(http://static1.squarespace.com/static/54e1eb34e4b00603728efcdd/54f5e15ee4b09f40436d39cd/54f5e181e4b09f40436d3d22/1425400341137/congruent_pentagon-subtle_patterns.png);')
+              h3=article.title
+        else if article.url && article.background === 'on'
+          a(href = '/articles/' + article._id) 
+            div.banner(style='background-image:url(#{article.url}); color:white;')
+              h3=article.title
+        else
+          a(href = '/articles/' + article._id) 
+            div.banner(style='background-image:url(#{article.url});')
+              h3=article.title
 
-      div.content
-        td= article.excerpt
+        div.content
+          td= article.excerpt
+  else    
+    a(href='/articles/new') Create New Article! 
