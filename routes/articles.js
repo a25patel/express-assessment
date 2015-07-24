@@ -3,6 +3,13 @@ var router = express.Router();
 var db = require('monk')(process.env.ARTICLES_INFO);
 var articleCollection = db.get('articles');
 
+//make index latest to oldest
+//format forms
+// paragraphs, validations, excerpt, body
+
+//etc 
+
+
 // GET my home Index page!
 router.get('/articles', function(req,res,next){
   articleCollection.find({}, function(err, zineIndex){
@@ -56,7 +63,7 @@ router.post('/articles/:id/update', function(req,res,next){
 // DELETE an article
 router.post('delete', function(req,res,next){
   articleCollection.remove({_id:req.params.id}, function(err, zineIndex){
-    res.redirect('/articles');   
+    res.redirect('/articles');
   });
 });
 
