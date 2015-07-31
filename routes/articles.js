@@ -6,8 +6,12 @@ var articleCollection = db.get('articles');
 //make index latest to oldest
 //format forms
 // paragraphs, validations, excerpt, body
-
+// fix the styling
 //etc 
+
+// go back and completely redo the entire thing ground up
+// set up middleware correctly!!!
+//make a note of everything needed to wire things up correctly
 
 
 // GET my home Index page!
